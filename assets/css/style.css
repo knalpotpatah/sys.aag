@@ -1,0 +1,38 @@
+.bg {
+  position: relative;
+  /* background: #1386c9; */
+  background-size: cover;
+  /* min-height: 750px; */
+  /* background-image: url("http://localhost/atrindo2/assets/img/bgr_login1.png"); */
+  background-attachment: fixed;
+  width: 100%;
+  height: auto;
+  /* background-size: cover; */
+  /* margin-top: -75px; */
+}
+
+.gb {
+  position: relative;
+  background-size: cover;
+  background-image: url("http://localhost/atrindo2/assets/img/binz.jpg");
+  background-attachment: fixed;
+  width: 100%;
+  height: auto;
+}
+
+/* @media (min-width: 576) {
+  .atur {
+    height: 370px;
+    margin-top: 100px;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    margin-right: 750px;
+  }
+} */
+
+.kotak {
+  margin-top: 200px;
+  width: 400px;
+  margin: 7% auto;
+}

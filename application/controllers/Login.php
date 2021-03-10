@@ -7,18 +7,24 @@ class Login extends CI_Controller
 
     public function index()
     {
-        if ($this->session->userdata('email')) {
-            redirect('admin/dashboard');
-        }
+        // if ($this->session->userdata('email')) {
+        //     redirect('admin/dashboard');
+        // }
+
+        $this->load->view('login');
+    }
+    public function admin()
+    {
+        // if ($this->session->userdata('email')) {
+        //     redirect('admin/dashboard');
+        // }
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
         if ($this->form_validation->run() == false) {
 
             $data['title'] = 'News Portal Login Page';
-            $this->load->view('templates/login/head');
-            $this->load->view('back/admin/login');
-            $this->load->view('templates/login/foot');
+            $this->load->view('login');
         } else {
             $this->_login();
         }
@@ -37,20 +43,22 @@ class Login extends CI_Controller
                         'email' => $email
                     ];
                     $this->session->set_userdata($data);
-                    redirect('admin/dashboard/');
+                    redirect('users/dashboard');
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Wrong password!</div>');
                     redirect('login');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated! </div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">This email has not been activated! </div>');
                 redirect('login');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center" role="alert">Email is not registered!</div>');
             redirect('login');
         }
     }
+
+   
 }
 
 
